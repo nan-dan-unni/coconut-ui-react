@@ -10,11 +10,31 @@ describe('Button', () => {
   });
 
   it('renders all sizes correctly', () => {
-    const sizes = ['sm', 'md'] as const;
+    const sizes = ['sm', 'md', 'lg'] as const;
 
     sizes.forEach((size) => {
       const { unmount } = render(<Button size={size}>{size}</Button>);
       expect(screen.getByRole('button', { name: size })).toBeInTheDocument();
+      unmount();
+    });
+  });
+
+  it('renders all colors correctly', () => {
+    const colors = ['primary', 'secondary', 'danger', 'success', 'warning'] as const;
+
+    colors.forEach((color) => {
+      const { unmount } = render(<Button color={color}>{color}</Button>);
+      expect(screen.getByRole('button', { name: color })).toBeInTheDocument();
+      unmount();
+    });
+  });
+
+  it('renders all variants correctly', () => {
+    const variants = ['solid', 'liquid', 'gas'] as const;
+
+    variants.forEach((variant) => {
+      const { unmount } = render(<Button variant={variant}>{variant}</Button>);
+      expect(screen.getByRole('button', { name: variant })).toBeInTheDocument();
       unmount();
     });
   });

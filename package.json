@@ -109,5 +109,8 @@
   "author": "Coconut UI",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1"
   }
 }
